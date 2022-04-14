@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePeriodesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('periodes', function (Blueprint $table) {
+            $table->increments('periode_id');
+            $table->integer('periode_year');
+            $table->char('periode_periodicity', 1);
+            $table->integer('periode_rang');
+            $table->date('periode_startdate');
+            $table->date('periode_enddate');
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('periodes');
+    }
+}
